@@ -1,0 +1,31 @@
+App\Entity\Location:
+    properties:
+        city:
+            - NotBlank: { groups: [new, edit] }
+            - Length: { min: 2, groups: [new, edit] }
+        latitude:
+            - NotBlank: { groups: [new, edit] }
+            - Range: { min: -90, max: 90, groups: [new, edit] }
+        longitude:
+            - NotBlank: { groups: [new, edit] }
+            - Range: { min: -180, max: 180, groups: [new, edit] }
+
+App\Entity\Forecast:
+    properties:
+        date:
+            - NotBlank: { groups: [new, edit] }
+            - GreaterThanOrEqual: { value: today, groups: [new] }
+        temperature:
+            - NotBlank: { groups: [new, edit] }
+            - Range: { min: -90, max: 60, groups: [new, edit] }
+        windspeed:
+            - NotBlank: { groups: [new, edit] }
+            - Range: { min: 0, max: 400, groups: [new, edit] }
+        humidity:
+            - NotBlank: { groups: [new, edit] }
+            - Range: { min: 0, max: 100, groups: [new, edit] }
+        cloudiness:
+            - NotBlank: { groups: [new, edit] }
+            - Range: { min: 0, max: 100, groups: [new, edit] }
+        location:
+            - NotBlank: { groups: [new, edit] }
