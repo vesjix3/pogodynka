@@ -29,7 +29,7 @@
                 <td>
                     {%  if is_granted('ROLE_FORECAST_SHOW') %}
                     <a href="{{ path('app_forecast_show', {'id': forecast.id}) }}">show</a>
-                    {%  endif % %}
+                    {%  endif  %}
                     {%  if is_granted('ROLE_FORECAST_EDIT') %}
                     <a href="{{ path('app_forecast_edit', {'id': forecast.id}) }}">edit</a>
                     {%  endif  %}
