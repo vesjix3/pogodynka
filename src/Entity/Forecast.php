@@ -22,7 +22,7 @@ class Forecast
     private ?\DateTime $date = null;
 
     #[ORM\Column]
-    private ?int $temperature = null;
+    private ?float $temperature = null;
 
     #[ORM\Column]
     private ?int $windspeed = null;
@@ -62,16 +62,20 @@ class Forecast
         return $this;
     }
 
-    public function getTemperature(): ?int
+    public function getTemperature(): ?float
     {
         return $this->temperature;
     }
 
-    public function setTemperature(int $temperature): static
+    public function setTemperature(float $temperature): static
     {
         $this->temperature = $temperature;
 
         return $this;
+    }
+    public function getFahrenheit(): float
+    {
+        return ($this->getTemperature() * 9 / 5) + 32;
     }
 
     public function getWindspeed(): ?int
